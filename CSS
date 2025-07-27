@@ -1,0 +1,144 @@
+html {
+    scroll-behavior: smooth;
+}  /*optional but great to make everything smooth*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+/*Nav bar, feel free to change the colour of the items and !!HOVER WAS JUST OPTION!! feel free to get rid of hover.*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    box-shadow: #01eeff 0px 0px 10px;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+    z-index: 2000;
+}
+
+.navbar-logo {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: #ff2a6d;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;;
+}
+
+.navbar-logo:hover {
+    color: #ff6999;
+    text-shadow: 0 0 5px #ff2a6d, 0 0 10px #ff2a6d, 0 0 15px #ff2a6d;
+}
+
+.navbar-container .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    backdrop-filter: blur(5px);
+}
+.navbar-container .navbar-menu li a{
+    font-family: "Audiowide", sans-serif;
+    text-decoration: none;
+    background: transparent;
+    color:#ff2a6d;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.navbar-container .navbar-menu li a:hover {
+    background: transparent;
+    border: 2px solid 	#ff2a6d;
+    text-shadow: 0 0 2px #ff2a6d, 0 0 4px #a80d3e, 0 0 6px #57031e;
+}
+
+
+.navbar-toggle {
+    display: none;
+    position: relative;
+    z-index: 1000;
+    background: transparent;
+    padding:10px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #01eeff;
+    transition: all 0.3s ease;
+}
+/*for phone or any device that is not pc*/
+@media (max-width: 800px) {
+    .navbar {
+        backdrop-filter: blur(5px);
+    }
+
+    .navbar-container .navbar-menu {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.7rem !important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5rem 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 221, 255, 0.552);
+        backdrop-filter: blur(20px);
+        background-color: rgba(0, 0, 0, 0.553);
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+
+    .navbar-container .navbar-menu.is-active {
+        display: flex;
+    }
+    
+    .navbar-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .navbar-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.is-active .bar:nth-child(1) {
+        transform: rotate(55deg) translate(10px);
+    }
+
+    .navbar-toggle.is-active .bar:nth-child(3) {
+        transform: rotate(-55deg) translate(10px);
+    }
+}
